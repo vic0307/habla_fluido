@@ -1,45 +1,41 @@
 # Habla Fluido
 
-App Flutter para aprender inglés con un tutor de IA: oído, pronunciación, lectura, escritura y conversación, con repetición espaciada (SM-2) y un proxy Node que protege la llave de la IA.
+Aplicación móvil desarrollada con **Flutter** enfocada en la práctica y mejora de habilidades lingüísticas a través de módulos interactivos de lectura, escucha, pronunciación, escritura y conversación.
 
-Desarrollo Móvil Integral · UTNG
+## Módulos y funcionalidades
 
-## App
-```bash
-flutter create . --project-name habla_fluido --platforms=android
-flutter pub get
-flutter test
-flutter run                      # usa el tutor simulado (sin internet ni costo)
-```
+* **Inicio:** Acceso principal a las distintas secciones y actividades de práctica.
+* **Lectura y comprobación de lectura:** Lectura de textos y validación de comprensión.
+* **Escucha (oído) y comprobación de oído:** Ejercicios de comprensión auditiva y verificación.
+* **Pronunciación:** Práctica oral para mejorar la articulación y fluidez.
+* **Escritura y escritura corregida:** Redacción guiada y revisión/corrección de textos.
+* **Conversación:** Práctica interactiva de diálogo.
+* **Repaso:** Refuerzo de contenidos y actividades vistas.
 
-### Permisos de Android
-En `android/app/src/main/AndroidManifest.xml`, dentro de `<manifest>`:
-```xml
-<uses-permission android:name="android.permission.RECORD_AUDIO"/>
-<uses-permission android:name="android.permission.INTERNET"/>
-```
-y dentro del bloque `<queries>`:
-```xml
-<intent><action android:name="android.speech.RecognitionService"/></intent>
-<intent><action android:name="android.intent.action.TTS_SERVICE"/></intent>
-```
+## Capturas de pantalla
 
-## Proxy de IA (opcional)
-```bash
-cd proxy
-node --test
-export ANTHROPIC_API_KEY=tu_llave    # Windows: set ANTHROPIC_API_KEY=tu_llave
-node server.js
-```
-Luego en la app:
-```bash
-flutter run --dart-define=TUTOR_URL=https://tu-servidor.com/tutor
-```
-La llave nunca va en la app ni en Git.
+| Inicio | Repaso |
+| :---: | :---: |
+| ![Inicio](capturas/inicio.png) | ![Repaso](capturas/repaso.png) |
 
-## Estructura
-- `lib/dominio`: reglas, comparador, SM-2, progreso, plan diario, contratos
-- `lib/datos`: tutor simulado y HTTP, voz real y simulada, almacén
-- `lib/presentacion`: ViewModels y pantallas
-- `test`: pruebas de la app
-- `proxy`: servidor Node con prompt, validación y límite de uso
+| Lectura | Comprobación de lectura |
+| :---: | :---: |
+| ![Lectura](capturas/lectura.png) | ![Comprobación de lectura](capturas/comprobaciondelectura.png) |
+
+| Prueba de oído | Comprobación de oído |
+| :---: | :---: |
+| ![Prueba de oído](capturas/oidoprueba.png) | ![Comprobación de oído](capturas/comprobaciondeoido.png) |
+
+| Pronunciación | Conversación |
+| :---: | :---: |
+| ![Pronunciación](capturas/pronunciacion.png) | ![Conversación](capturas/conversacion.png) |
+
+| Escritura | Escritura corregida |
+| :---: | :---: |
+| ![Escritura](capturas/escritura.png) | ![Escritura corregida](capturas/escrituracorregida.png) |
+
+## Ejecución local
+
+1. Clona el repositorio:
+   ```bash
+   git clone [https://github.com/vic0307/habla_fluido.git](https://github.com/vic0307/habla_fluido.git)
